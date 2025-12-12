@@ -1,0 +1,25 @@
+int p1=9;
+int mbright=255;
+int hbright=128;
+int nbright=0;
+int pbright=64;
+int tbright=10;
+int w=500;
+void setup()
+{
+  pinMode(p1, OUTPUT);
+}
+
+void loop()
+{
+analogWrite(p1,mbright);
+delay(w);
+analogWrite(p1,hbright);
+delay(w);
+analogWrite(p1,nbright);
+delay(w);
+analogWrite(p1,tbright);
+delay(w);
+analogWrite(p1,pbright);
+delay(w);
+}
