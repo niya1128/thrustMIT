@@ -1,0 +1,58 @@
+int rLED=8;
+int dit=250;
+int dah=700;
+int LongW=2000;
+void setup()
+{
+  pinMode(rLED, OUTPUT);
+}
+
+void loop()
+{
+ digitalWrite(rLED,HIGH);
+ delay(dit);
+ digitalWrite(rLED,LOW);
+ delay(dit);
+ 
+ digitalWrite(rLED,HIGH);
+ delay(dit);
+ digitalWrite(rLED,LOW);
+ delay(dit);
+  
+ digitalWrite(rLED,HIGH);
+ delay(dit);
+ digitalWrite(rLED,LOW);
+ delay(dit);
+  
+ digitalWrite(rLED,HIGH);
+ delay(dah);
+ digitalWrite(rLED,LOW);
+ delay(dah);
+ 
+ digitalWrite(rLED,HIGH);
+ delay(dah);
+ digitalWrite(rLED,LOW);
+ delay(dah);
+  
+ digitalWrite(rLED,HIGH);
+ delay(dah);
+ digitalWrite(rLED,LOW);
+ delay(dah);
+  
+ digitalWrite(rLED,HIGH);
+ delay(dit);
+ digitalWrite(rLED,LOW);
+ delay(dit);
+ 
+ digitalWrite(rLED,HIGH);
+ delay(dit);
+ digitalWrite(rLED,LOW);
+ delay(dit);
+  
+ digitalWrite(rLED,HIGH);
+ delay(dit);
+ digitalWrite(rLED,LOW);
+ delay(dit);
+  
+ delay(LongW);
+}
