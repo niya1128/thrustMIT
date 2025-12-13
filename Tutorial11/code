@@ -1,0 +1,18 @@
+int waitT=750;
+float r=2,pi=3.14,area;
+String s1=" is ";
+void setup()
+{
+ Serial.begin(9600);
+}
+
+void loop()
+{
+ area=pi*r*r;
+ Serial.print("The Area of circle with radius " );
+ Serial.print(r);
+ Serial.print(s1);
+ Serial.println(area);
+ r=r+0.5;
+ delay(waitT);
+}
