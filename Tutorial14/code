@@ -1,0 +1,18 @@
+int VPin=A3,gPin=11;
+float LEDVal;
+int VVal;
+void setup()
+{
+  pinMode(VPin,INPUT);
+  pinMode(gPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  VVal=analogRead(VPin);
+  LEDVal=255.0/1023.0*VVal;
+  analogWrite(gPin,LEDVal);
+  Serial.println(LEDVal);
+  delay(500);
+}
