@@ -1,0 +1,48 @@
+int rPin=11,bPin=6,gPin=3;
+String colour,m="What colour?";
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(rPin,OUTPUT);
+  pinMode(bPin,OUTPUT);
+  pinMode(gPin,OUTPUT);
+}
+
+void loop()
+{
+  Serial.println(m);
+  while(Serial.available()==0)
+  {
+  }
+  colour=Serial.readString();
+  if(colour=="red" || colour=="RED" || colour=="Red")
+  {
+   digitalWrite(rPin,HIGH);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="blue" || colour=="BLUE" || colour=="Blue")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,HIGH);
+  }
+  if(colour=="green" || colour=="GREEN" || colour=="Green")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,HIGH);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="off" || colour=="OFF")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="aqua" || colour=="AQUA" || colour=="Aqua")
+  {
+   digitalWrite(rPin,LOW);
+   analogWrite(gPin,255);
+   analogWrite(bPin,80);
+  }
+}
