@@ -1,0 +1,39 @@
+String colour,m1="Which colour do you want to light up(R/G/B)?";
+int rPin=11;
+int gPin=9;
+int bPin=6;
+int dT=500;
+void setup()
+{
+  pinMode(rPin,OUTPUT);
+  pinMode(gPin,OUTPUT);
+  pinMode(bPin,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println(m1);
+  while(Serial.available()==0)
+  {
+  }
+  colour=Serial.readString();
+  if(colour=="R")
+  {
+   digitalWrite(rPin,HIGH);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="G")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,HIGH);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="B")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,HIGH);
+  }
+}
