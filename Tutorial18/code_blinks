@@ -1,0 +1,23 @@
+int i,nblinks;
+int rPin=11,dt=500;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(rPin,OUTPUT);
+}
+
+void loop()
+{
+  Serial.println("How many blinks do you want?");
+  while(Serial.available()==0)
+  {
+  }
+  nblinks=Serial.parseInt();
+  for(i=0;i<nblinks;i++)
+  {
+   digitalWrite(rPin,HIGH);
+   delay(dt);
+   digitalWrite(rPin,LOW);
+   delay(dt);
+  }
+}
