@@ -1,0 +1,19 @@
+float radius,area,pi=3.14;
+int i;
+String m1="Enter radius: ",m2="Area is: ";
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.println(m1);
+  while(Serial.available()==0)
+  {
+  }
+  radius=Serial.parseFloat();
+  area=pi*radius*radius;
+  Serial.print(m2);
+  Serial.println(area);
+}
+  
