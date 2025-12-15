@@ -1,0 +1,66 @@
+int rPin=11,bPin=9,gPin=6;
+String colour;
+void setup()
+{
+  pinMode(rPin, OUTPUT);
+  pinMode(bPin,OUTPUT);
+  pinMode(gPin,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println("Colour?");
+  while(Serial.available()==0)
+  {
+  }
+  colour=Serial.readString();
+  if(colour=="red" || colour=="RED" || colour=="Red")
+  {
+   digitalWrite(rPin,HIGH);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="blue" || colour=="BLUE" || colour=="Blue")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,HIGH);
+  }
+  if(colour=="green" || colour=="GREEN" || colour=="Green")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,HIGH);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="off" || colour=="OFF")
+  {
+   digitalWrite(rPin,LOW);
+   digitalWrite(gPin,LOW);
+   digitalWrite(bPin,LOW);
+  }
+  if(colour=="aqua" || colour=="AQUA" || colour=="Aqua")
+  {
+   digitalWrite(rPin,LOW);
+   analogWrite(gPin,255);
+   analogWrite(bPin,80);
+  }
+  if(colour=="yellow" || colour=="YELLOW" || colour=="Yellow")
+  {
+   analogWrite(rPin,255);
+   analogWrite(gPin,255);
+   analogWrite(bPin,0);
+  }
+  if(colour=="cyan" || colour=="CYAN" || colour=="Cyan")
+  {
+   analogWrite(rPin,0);
+   analogWrite(gPin,255);
+   analogWrite(bPin,255);
+  }
+  if(colour=="magenta" || colour=="MAGENTA" || colour=="Magenta")
+  {
+   analogWrite(rPin,255);
+   analogWrite(gPin,0);
+   analogWrite(bPin,100);
+  }
+}
