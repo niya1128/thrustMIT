@@ -1,0 +1,22 @@
+int buzzPin=8,dTime=1000;
+int VPin=A2,Vread;
+void setup()
+{
+  pinMode(buzzPin, OUTPUT);
+  pinMode(VPin,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Vread=analogRead(VPin);
+  Serial.print("The Voltage is: ");
+  Serial.println(Vread);
+  delay(dTime);
+  while(Vread>1000)
+  {
+    digitalWrite(buzzPin,HIGH);
+    Vread=analogRead(VPin);
+  }
+  digitalWrite(buzzPin,LOW);
+}
