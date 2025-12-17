@@ -1,0 +1,23 @@
+int buzzPin=7;
+int VPin=A3,VRead;
+int dT=1000;
+float toneVal;
+void setup()
+{
+  pinMode(buzzPin, OUTPUT);
+  pinMode(VPin,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  VRead=analogRead(VPin);
+  Serial.print("Voltage reading is: ");
+  Serial.println(VRead);
+  delay(dT);
+  toneVal=9940.0/1023.0*VRead+60;
+  digitalWrite(buzzPin,HIGH);
+  delayMicroseconds(toneVal);
+  digitalWrite(buzzPin,LOW);
+  delayMicroseconds(toneVal);
+}
