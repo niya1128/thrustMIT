@@ -1,0 +1,23 @@
+int rPin=5,buttonPin=10;
+int buttonRead,dT=500;
+void setup()
+{
+  pinMode(rPin,OUTPUT);
+  pinMode(buttonPin,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  buttonRead=digitalRead(buttonPin);
+  Serial.println(buttonRead);
+  delay(dT);
+  if(buttonRead==1)
+  {
+    digitalWrite(rPin,LOW);
+  }
+  if(buttonRead==0)
+  {
+    digitalWrite(rPin,HIGH);
+  }
+}
