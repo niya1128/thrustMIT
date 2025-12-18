@@ -1,0 +1,28 @@
+int toggSwitch=11,buttonNew,buttonOld=1;
+int rPin=4,LEDState=0,dT=100;
+void setup()
+{
+  pinMode(rPin,OUTPUT);
+  pinMode(toggSwitch,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  buttonNew=digitalRead(toggSwitch);
+  if(buttonOld==0 && buttonNew==1)
+  {
+    if(LEDState==0)
+    {
+      digitalWrite(rPin,HIGH);
+      LEDState=1;
+    }
+    else
+    {
+      digitalWrite(rPin,LOW);
+      LEDState=0;
+    }
+  }
+  buttonOld=buttonNew;
+  delay(dT);
+}
