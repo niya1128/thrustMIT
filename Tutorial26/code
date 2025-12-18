@@ -1,0 +1,19 @@
+int VPin=A1,LVal;
+int buzzPin=10,toneVal;;
+void setup()
+{
+  pinMode(buzzPin,OUTPUT);
+  pinMode(VPin,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  LVal=analogRead(VPin);
+  Serial.println(LVal);
+  toneVal=11.03219*LVal-248.90132;
+  digitalWrite(buzzPin,HIGH);
+  delayMicroseconds(toneVal);
+  digitalWrite(buzzPin,LOW);
+  delayMicroseconds(toneVal);
+}
