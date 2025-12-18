@@ -1,0 +1,13 @@
+int LPin=A0,LVal,dT=500;
+void setup()
+{
+  pinMode(LPin,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  LVal=analogRead(LPin);
+  Serial.println(LVal);
+  delay(dT);
+}
