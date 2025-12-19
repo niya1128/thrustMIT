@@ -1,0 +1,49 @@
+int rPin=3,dT=500;
+int buzzPin=4;
+int pb1=13,pb2=10;
+int r1,r2,rRead=0;
+void setup()
+{
+  pinMode(rPin,OUTPUT);
+  pinMode(pb1,INPUT);
+  pinMode(pb2,INPUT);
+  pinMode(buzzPin,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  r1=digitalRead(pb1);
+  r2=digitalRead(pb2);
+  Serial.print("Reading1 = ");
+  Serial.print(r1);
+  Serial.print("Reading2 = ");
+  delay(dT);
+  Serial.println(r2);
+  if(r1==0)
+  {
+    rRead=rRead+5;
+  }
+  if(r2==0)
+  {
+    rRead=rRead-5;
+  }
+  Serial.println(rRead);
+  if(rRead>255)
+  {
+    rRead=255;
+    Serial.print("BUZZ HIGH");
+    digitalWrite(buzzPin,HIGH);
+    delay(dT);
+    digitalWrite(buzzPin,LOW);
+  }
+  if(rRead<0)
+  {
+    rRead=0;
+    Serial.print("BUZZ LOW");
+    digitalWrite(buzzPin,HIGH);
+    delay(dT);
+    digitalWrite(buzzPin,LOW);
+  }
+   analogWrite(rPin,rRead);
+}
