@@ -1,0 +1,19 @@
+#include <Servo.h>
+int servoPin=5,angle=0;
+int LPin=A2,LVal;
+Servo MyServo;
+void setup()
+{
+  pinMode(LPin,INPUT);
+  MyServo.attach(servoPin);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  LVal=analogRead(LPin);
+  angle=170.0/901.0*LVal-170.0/901.0*28;
+  MyServo.write(angle);
+  Serial.println(angle);
+  delay(500);
+}
