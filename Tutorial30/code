@@ -1,0 +1,18 @@
+#include <Servo.h>
+int servoPin=9,servoPos=0;
+Servo MyServo;
+void setup()
+{
+  MyServo.attach(servoPin);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println("What angle for the servo?");
+  while(Serial.available()==0)
+  {
+  }
+  servoPos=Serial.parseInt();
+  MyServo.write(servoPos);
+}
