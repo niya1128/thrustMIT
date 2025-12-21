@@ -1,0 +1,44 @@
+#include <Servo.h>
+Servo S1,S2;
+int XPin=A4,YPin=A2,switchPin=12,sPin1=11,sPin2=4;
+int XVal,YVal,switchState,angle1,angle2,dT=500;
+int buzzPin=7;
+void setup()
+{
+  pinMode(XPin,INPUT);
+  pinMode(YPin,INPUT);
+  pinMode(sPin1,OUTPUT);
+  pinMode(sPin2,OUTPUT);
+  pinMode(switchPin,INPUT);
+  pinMode(buzzPin,OUTPUT);
+  S1.attach(sPin1);
+  S2.attach(sPin2);
+  Serial.begin(9600);
+  digitalWrite(switchPin,HIGH);
+}
+
+void loop()
+{
+  XVal=analogRead(XPin);
+  YVal=analogRead(YPin);
+  switchState=digitalRead(switchPin);
+  angle1=180.0/1023*XVal;
+  angle2=180.0/1023*YVal;
+  S1.write(angle1);
+  S2.write(angle2);
+  Serial.print("X Value is: ");
+  Serial.print(XVal);
+  Serial.print(" Y Value is: ");
+  Serial.print(YVal);
+  Serial.print(" Switch state is: ");
+  Serial.println(switchState);
+  delay(dT);
+  if(switchState==0)
+  {
+    digitalWrite(buzzPin,HIGH);
+  }
+  else
+  {
+    digitalWrite(buzzPin,LOW);
+  }
+}
